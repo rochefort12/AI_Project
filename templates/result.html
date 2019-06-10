@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>index</title>
+<style>
+  body{
+    background:url("{{ url_for('static', filename='../static/bg.jpg') }}") no-repeat;
+    background-size: 100%;
+	font-family: "Microsoft YaHei";
+  }	
+  h2{
+	text-align: center
+  }
+  .button {
+	border-radius: 10px;
+    background-color:coral; /* #8F3739Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+	font-family: "Microsoft YaHei";
+  }
+  #source{
+	border-radius: 10px;
+    padding: 20px; 
+    width: 500px;
+    height: 12px; 
+    font-family: "Microsoft YaHei";
+  }
+  table{
+	text-align: center
+  }
+  .couplet{
+    height: 60px; 
+    font-size: 24px;
+    font-family: "Microsoft YaHei";
+  }
+</style>
+</head>
+
+<body>
+<div>
+  <div>
+    <h2>对联项目</h2>
+  </div>
+  
+  <center>
+  <div>
+     <input id="source" type=text/>
+     <input type="button" onClick="button_click()" class="button" value = "对下联"/>
+  </div>
+  </center>
+  <br/>
+  <br/>
+  <center>
+  <div>
+     <div class="couplet">上联<div class="couplet" id="up">{{in_str}}</div></div>
+     <br>
+     <div class="couplet">下联<div class="couplet" id="down">{{output}}</div></div>
+     
+  </div>
+  </center>
+</div>
+</body>
+</html>
+
+
+
+<script>
+  function button_click(){
+	  var src = document.getElementById("source").value;
+	  location.href = "http://localhost:5000/chat/couplet/" + src;
+  }
+</script>
